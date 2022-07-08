@@ -1,4 +1,4 @@
-// Provisions a storage account
+// main.bicep - Provisions a storage account
 param resLocation string = resourceGroup().location
 
 resource stg 'Microsoft.Storage/storageAccounts@2021-02-01' = {
