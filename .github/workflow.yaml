@@ -1,0 +1,25 @@
+name: deploy-stg-acct
+
+on: 
+  push:
+    branches: 
+      - main
+
+env:
+  AZURE_RESOURCEGROUP_NAME: bicep
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: azure/login@v1
+      name: Sign in to Azure
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+    - uses: azure/arm-deploy@v1
+      name: Provision Storage Account
+      with:
+        deploymentName: ${{ github.run_number }}
+        resourceGroupName: ${{ env.AZURE_RESOURCEGROUP_NAME }}
+        template: ./main.bicep
