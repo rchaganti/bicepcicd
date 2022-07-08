@@ -24,6 +24,7 @@ jobs:
       name: Sign in to Azure
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
+        subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
   deploy:
     runs-on: ubuntu-latest
