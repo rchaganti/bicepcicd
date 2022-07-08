@@ -1,4 +1,4 @@
-name: provision-stg-accnt
+name: provision-stg-acct
 
 on: 
   push:
